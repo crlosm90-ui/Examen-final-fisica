@@ -19,7 +19,7 @@ const gameState = {
 
     bossHealTimer: 300,
     bossHealMaxTime: 300,
-    bossHealPercentage: 15,
+    bossHealPercentage: 20,
     timerInterval: null,
 
     studentName: "",
@@ -167,7 +167,7 @@ function startBossHealTimer() {
             if (actualHeal > 0) {
                 gameState.enemyHP = newHP;
                 updateHPBars();
-                addMessageWithTyping(`⚠️ ¡El enemigo se ha curado ${actualHeal} HP! ⚠️`);
+                addMessageWithTyping(`⚠️ ¡AETÉRNUS absorbe energía cósmica y recupera ${actualHeal} HP! ⚠️`);
                 // Animación de curación en el sprite del enemigo
                 const enemySprite = document.querySelector('.enemy-sprite');
                 enemySprite.style.filter = 'drop-shadow(0 0 10px #4caf50)';
@@ -335,6 +335,7 @@ async function playerAttack(moveKey) {
             if (correct) {
                 await addMessageWithTyping(`✨ ¡GOLPE CRÍTICO! ${move.damage} de daño.`);
                 gameState.enemyHP = Math.max(0, gameState.enemyHP - move.damage);
+                playHitAnimation('.enemy-sprite');
                 updateHPBars();
                 
                 document.querySelector('.enemy-sprite').style.transform = 'scale(0.8)';
@@ -485,14 +486,14 @@ async function enemyTurn() {
             let damage;
             if (correct) {
                 damage = Math.floor(baseDamage * 0.5);
-                await addMessageWithTyping(`🛡️ ¡Gran defensa! Recibes solo ${damage} de daño.`);
+                addMessageWithTyping(`🛡️ ¡Nexo resiste! Recibe solo ${damage} de daño.`);
                 document.querySelector('.player-sprite').style.transform = 'scale(1.1)';
                 setTimeout(() => {
                     document.querySelector('.player-sprite').style.transform = 'scale(1)';
                 }, 200);
             } else {
                 damage = baseDamage;
-                await addMessageWithTyping(`💥 ¡Golpe directo! Recibes ${damage} de daño.`);
+                addMessageWithTyping(`💥 ¡Aetérnus golpea a Nexo! Recibe ${damage} de daño.`);
                 document.querySelector('.player-sprite').style.filter = 'brightness(1.5)';
                 document.querySelector('.player-sprite').style.transform = 'translateX(5px)';
                 setTimeout(() => {
@@ -502,6 +503,7 @@ async function enemyTurn() {
             }
 
             gameState.playerHP = Math.max(0, gameState.playerHP - damage);
+            playHitAnimation('.player-sprite');
             updateHPBars();
 
             if (!checkGameOver()) {
@@ -566,16 +568,89 @@ async function waitWithMessage(mensaje, segundos = 3) {
     });
 }
 
+function calcularCalificacion(enemyHP, maxHP) {
+    if (enemyHP <= 0) return 10; // victoria
+    // vida restante del jefe en porcentaje (0% = casi muerto, 100% = intacto)
+    const pctVidaJefe = enemyHP / maxHP;
+    // A menos vida del jefe = mejor calificación (de 5 a 9)
+    if (pctVidaJefe <= 0.20) return 9;
+    if (pctVidaJefe <= 0.40) return 8;
+    if (pctVidaJefe <= 0.60) return 7;
+    if (pctVidaJefe <= 0.80) return 6;
+    return 5;
+}
+
+function mostrarResultadoFinal(status, finalEnemyHP) {
+    const calificacion = calcularCalificacion(finalEnemyHP, maxHP);
+    const modal   = document.getElementById('result-modal');
+    const icon    = document.getElementById('result-icon');
+    const title   = document.getElementById('result-title');
+    const message = document.getElementById('result-message');
+    const grade   = document.getElementById('result-grade');
+    const name    = document.getElementById('result-name');
+
+    if (status === 'victoria') {
+        icon.textContent  = '🏆';
+        title.textContent = '¡VICTORIA!';
+        title.className   = 'result-title victoria';
+        message.textContent = '¡Derrotaste a la Entidad Cósmica!\n¡Dominas la materia!';
+        grade.className   = 'result-grade grade-10';
+    } else {
+        icon.textContent  = '💀';
+        title.textContent = '¡DERROTA!';
+        title.className   = 'result-title derrota';
+        message.textContent = `Dejaste al jefe con ${finalEnemyHP}/${maxHP} HP.\nTu calificación refleja el daño que le causaste.`;
+        grade.className   = calificacion >= 8 ? 'result-grade grade-high'
+                          : calificacion >= 6 ? 'result-grade grade-mid'
+                          : 'result-grade grade-low';
+    }
+
+    grade.textContent = calificacion;
+    name.textContent  = gameState.studentName.toUpperCase();
+
+    // Mostrar modal con pequeño retraso para que se vea después de la animación
+    setTimeout(() => modal.classList.remove('hidden'), 1800);
+}
+
 function checkGameOver() {
-    /*if (gameState.playerHP <= 0) {
-        addMessageWithTyping('¡El JUGADOR ha sido derrotado... Fin del examen!');
+    if (gameState.playerHP <= 0) {
         disablePlayerButtons();
         gameState.isPlayerTurn = false;
         gameState.isActionInProgress = false;
         if (gameState.timerInterval) clearInterval(gameState.timerInterval);
-        sendGameData("derrota", gameState.playerHP, gameState.enemyHP);
+
+        const playerSprite = document.querySelector('.player-sprite');
+        playerSprite.classList.add('dying');
+
+        setTimeout(() => {
+            addMessageWithTyping('¡Nexo ha caído ante Aetérnus... El tiempo se detiene!');
+            sendGameData("derrota", gameState.playerHP, gameState.enemyHP);
+            mostrarResultadoFinal('derrota', gameState.enemyHP);
+        }, 1000);
+
         return true;
-    }*/
+    }
+    if (gameState.enemyHP <= 0) {
+        disablePlayerButtons();
+        gameState.isPlayerTurn = false;
+        gameState.isActionInProgress = false;
+        if (gameState.timerInterval) clearInterval(gameState.timerInterval);
+
+        const enemySprite = document.querySelector('.enemy-sprite');
+        enemySprite.classList.add('dying');
+
+        setTimeout(() => {
+            addMessageWithTyping('¡AETÉRNUS ha sido sellado! ¡El tiempo vuelve a fluir!');
+            sendGameData("victoria", gameState.playerHP, gameState.enemyHP);
+            mostrarResultadoFinal('victoria', 0);
+        }, 1200);
+
+        return true;
+    }
+    return false;
+}
+
+/*function checkGameOver() {
     if (gameState.playerHP <= 0) {
         disablePlayerButtons();
         gameState.isPlayerTurn = false;
@@ -593,15 +668,7 @@ function checkGameOver() {
 
         return true;
     }
-    /*if (gameState.enemyHP <= 0) {
-        addMessageWithTyping('¡ENEMIGO derrotado! ¡Has aprobado el examen con honores!');
-        disablePlayerButtons();
-        gameState.isPlayerTurn = false;
-        gameState.isActionInProgress = false;
-        if (gameState.timerInterval) clearInterval(gameState.timerInterval);
-        sendGameData("victoria", gameState.playerHP, gameState.enemyHP);
-        return true;
-    }*/
+
     if (gameState.enemyHP <= 0) {
         disablePlayerButtons();
         gameState.isPlayerTurn = false;
@@ -620,12 +687,20 @@ function checkGameOver() {
         return true;
     }
     return false;
-}
+}*/
 
 function playEnemyDeathAnimation(callback) {
     const sprite = document.querySelector('.enemy-sprite');
     sprite.classList.add('dying');
     setTimeout(callback, 1200); // espera a que termine la animación
+}
+
+function playHitAnimation(spriteSelector) {
+    const sprite = document.querySelector(spriteSelector);
+    sprite.classList.remove('hit'); // reiniciar si ya estaba
+    void sprite.offsetWidth;        // forzar reflow para que se reinicie
+    sprite.classList.add('hit');
+    setTimeout(() => sprite.classList.remove('hit'), 400);
 }
 
 async function sendGameData(status, finalPlayerHP, finalEnemyHP) {
@@ -696,7 +771,7 @@ async function initGame() {
     updateTimerDisplay();
     startBossHealTimer();  // <-- NUEVO
     
-    await addMessageWithTyping('¡La batalla comienza! Elige una acción.');
+    addMessageWithTyping('¡AETÉRNUS, el Colapso Temporal, te desafía! Elige una acción.');
     initButtons();
     enablePlayerButtons();
 }

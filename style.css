@@ -797,3 +797,110 @@ body::after {
     animation: player-death 1s ease-in forwards !important;
     transform-origin: center center;
 }
+
+/* ============================================================
+   MODAL DE RESULTADO FINAL
+   ============================================================ */
+.result-modal-content {
+    text-align: center;
+    padding: 40px 30px !important;
+    max-width: 480px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.result-icon {
+    font-size: 64px;
+    animation: result-icon-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+@keyframes result-icon-pop {
+    0%   { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.result-title {
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.result-title.victoria { color: #f0d060; text-shadow: 0 0 20px rgba(240,208,0,0.6); }
+.result-title.derrota  { color: #ff6060; text-shadow: 0 0 20px rgba(255,60,60,0.6); }
+
+.result-message {
+    font-size: 10px;
+    color: #c0b0e0;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.result-grade-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background: #080418;
+    border: 3px solid #6040c0;
+    padding: 16px 40px;
+    margin: 8px 0;
+    box-shadow: 0 0 30px rgba(96,64,192,0.5);
+}
+
+.result-grade-label {
+    font-size: 9px;
+    color: #a090d0;
+    letter-spacing: 2px;
+}
+
+.result-grade {
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 1;
+    animation: grade-glow 2s ease-in-out infinite alternate;
+}
+
+.result-grade.grade-10  { color: #f0d060; }
+.result-grade.grade-high { color: #80e880; }  /* 8-9 */
+.result-grade.grade-mid  { color: #ff9800; }  /* 6-7 */
+.result-grade.grade-low  { color: #ff6060; }  /* 5   */
+
+@keyframes grade-glow {
+    0%   { text-shadow: 0 0 10px currentColor; }
+    100% { text-shadow: 0 0 30px currentColor, 0 0 60px currentColor; }
+}
+
+.result-name {
+    font-size: 9px;
+    color: #8070a0;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Golpe recibido — Nexo */
+@keyframes player-hit {
+    0%   { transform: translateX(0); filter: brightness(1); }
+    25%  { transform: translateX(-15px); filter: brightness(2) saturate(0); }
+    50%  { transform: translateX(8px);  filter: brightness(1.5); }
+    75%  { transform: translateX(-5px); filter: brightness(1.2); }
+    100% { transform: translateX(0);   filter: brightness(1); }
+}
+
+/* Golpe recibido — Kronos */
+@keyframes enemy-hit {
+    0%   { transform: translateX(0);    filter: brightness(1); }
+    25%  { transform: translateX(15px); filter: brightness(2) hue-rotate(60deg); }
+    50%  { transform: translateX(-8px); filter: brightness(1.5); }
+    75%  { transform: translateX(5px);  filter: brightness(1.2); }
+    100% { transform: translateX(0);    filter: brightness(1); }
+}
+
+.player-sprite.hit {
+    animation: player-hit 0.4s ease-out forwards !important;
+}
+
+.enemy-sprite.hit {
+    animation: enemy-hit 0.4s ease-out forwards !important;
+}

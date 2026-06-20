@@ -438,7 +438,7 @@
     "question": "¿Cuál es la función principal del campo magnético terrestre en relación con la vida en el planeta?",
     "options": ["Generar gravedad", "Protección contra radiación solar y orientación", "Ninguna influencia biológica", "Regular la temperatura"],
     "correctIndex": 1,
-    "difficulty": "hard"
+    "difficulty": "medium"
   },
   {
     "id": 67,
@@ -452,7 +452,7 @@
     "question": "La luz puede comportarse tanto como una onda como una corriente de partículas (fotones). ¿Cómo se denomina a este fenómeno fundamental de la física cuántica?",
     "options": ["Reflexión total", "Dualidad onda-partícula", "Dispersión cromática", "Efecto Joule"],
     "correctIndex": 1,
-    "difficulty": "hard"
+    "difficulty": "easy"
   },
   {
     "id": 69,
@@ -466,6 +466,6 @@
     "question": "Si una bobina se mueve dentro de un campo magnético, se induce una corriente eléctrica. Este es el principio de:",
     "options": ["Electrólisis", "Inducción electromagnética", "Efecto Doppler", "Ley de Gravitación"],
     "correctIndex": 1,
-    "difficulty": "hard"
+    "difficulty": "medium"
   }
 ]

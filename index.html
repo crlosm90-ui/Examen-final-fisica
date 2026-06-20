@@ -16,7 +16,7 @@
                 <img src="heroicon.png" alt="Héroe">
             </div>
             <div class="hud-info">
-                <span class="hud-name">HÉROE</span>
+                <span class="hud-name">NEXO, último guardian del tiempo</span>
                 <div class="bar-container">
                     <div id="player-hp" class="bar player-bar" style="width:100%"></div>
                 </div>
@@ -28,7 +28,7 @@
 
         <div class="hud-enemy">
             <div class="hud-info hud-info-right">
-                <span class="hud-name">ENTIDAD CÓSMICA</span>
+                <span class="hud-name">Colapso Temporal AETÉRNUS</span>
                 <div class="bar-container">
                     <div id="enemy-hp" class="bar enemy-bar" style="width:100%"></div>
                 </div>
@@ -91,7 +91,7 @@
                 <ul class="instructions-list">
                     <li>⚔️ <span>Contesta <b>correctamente</b> para golpear al enemigo o curarte.</span></li>
                     <li>💥 <span>Si te <b>equivocas</b>, recibes daño o fallas el ataque.</span></li>
-                    <li>🔥 <span>Cuando la <b>cuenta atrás temporal</b> llega a cero, el jefe se cura.</span></li>
+                    <li>🔥 <span>Cuando la <b>cuenta atrás temporal</b> llega a cero, <b>AETÉRNUS</b> se regenera.</span></li>
                     <li>🏆 <span>Si <b>derrotas al jefe</b>, obtendrás un <b>10</b>.</span></li>
                     <li>📊 <span>Si fallas, tu <b>calificación</b> dependerá de cuánta vida conserva el jefe.</span></li>
                 </ul>
@@ -108,6 +108,20 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<!-- Modal de resultado final -->
+<div id="result-modal" class="modal hidden">
+    <div class="modal-content result-modal-content">
+        <div id="result-icon" class="result-icon"></div>
+        <h2 id="result-title" class="result-title"></h2>
+        <p id="result-message" class="result-message"></p>
+        <div class="result-grade-box">
+            <span class="result-grade-label">CALIFICACIÓN</span>
+            <span id="result-grade" class="result-grade"></span>
+        </div>
+        <p id="result-name" class="result-name"></p>
     </div>
 </div>
 
