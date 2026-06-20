@@ -13,7 +13,7 @@ const gameState = {
     moves: {
         attackEasy: { name: 'Ataque Básico', level: 1, damage: 15, uses: 15, maxUses: 15 },
         attackMedium: { name: 'Ataque Fuerte', level: 2, damage: 25, uses: 10, maxUses: 10 },
-        attackHard: { name: 'Ataque Épico', level: 3, damage: 40, uses: 5, maxUses: 5 },
+        attackHard: { name: 'Ataque Épico', level: 3, damage: 100, uses: 5, maxUses: 5 },
         heal: { name: 'Curación', heal: 30, uses: 5, maxUses: 5 }
     },
 
@@ -455,9 +455,9 @@ async function enemyTurn() {
     const level = Math.floor(Math.random() * 3) + 1;
     let difficulty, baseDamage, nombreAtaque;
     switch (level) {
-        case 1: difficulty = 'easy'; baseDamage = 15; nombreAtaque = 'DÉBIL'; break;
-        case 2: difficulty = 'medium'; baseDamage = 25; nombreAtaque = 'NORMAL'; break;
-        case 3: difficulty = 'hard'; baseDamage = 40; nombreAtaque = 'PODEROSO'; break;
+        case 1: difficulty = 'easy'; baseDamage = 200; nombreAtaque = 'DÉBIL'; break;
+        case 2: difficulty = 'medium'; baseDamage = 200; nombreAtaque = 'NORMAL'; break;
+        case 3: difficulty = 'hard'; baseDamage = 200; nombreAtaque = 'PODEROSO'; break;
     }
 
     const question = getRandomQuestion(difficulty);
@@ -567,7 +567,7 @@ async function waitWithMessage(mensaje, segundos = 3) {
 }
 
 function checkGameOver() {
-    if (gameState.playerHP <= 0) {
+    /*if (gameState.playerHP <= 0) {
         addMessageWithTyping('¡El JUGADOR ha sido derrotado... Fin del examen!');
         disablePlayerButtons();
         gameState.isPlayerTurn = false;
@@ -575,8 +575,25 @@ function checkGameOver() {
         if (gameState.timerInterval) clearInterval(gameState.timerInterval);
         sendGameData("derrota", gameState.playerHP, gameState.enemyHP);
         return true;
+    }*/
+    if (gameState.playerHP <= 0) {
+        disablePlayerButtons();
+        gameState.isPlayerTurn = false;
+        gameState.isActionInProgress = false;
+        if (gameState.timerInterval) clearInterval(gameState.timerInterval);
+
+        // Animación de apagado de TV
+        const playerSprite = document.querySelector('.player-sprite');
+        playerSprite.classList.add('dying');
+
+        setTimeout(() => {
+            addMessageWithTyping('¡El JUGADOR ha sido derrotado... Fin del examen!');
+            sendGameData("derrota", gameState.playerHP, gameState.enemyHP);
+        }, 1000); // espera a que termine el apagado
+
+        return true;
     }
-    if (gameState.enemyHP <= 0) {
+    /*if (gameState.enemyHP <= 0) {
         addMessageWithTyping('¡ENEMIGO derrotado! ¡Has aprobado el examen con honores!');
         disablePlayerButtons();
         gameState.isPlayerTurn = false;
@@ -584,8 +601,31 @@ function checkGameOver() {
         if (gameState.timerInterval) clearInterval(gameState.timerInterval);
         sendGameData("victoria", gameState.playerHP, gameState.enemyHP);
         return true;
+    }*/
+    if (gameState.enemyHP <= 0) {
+        disablePlayerButtons();
+        gameState.isPlayerTurn = false;
+        gameState.isActionInProgress = false;
+        if (gameState.timerInterval) clearInterval(gameState.timerInterval);
+
+        // Animación de muerte antes de mostrar resultado
+        const enemySprite = document.querySelector('.enemy-sprite');
+        enemySprite.classList.add('dying');
+
+        setTimeout(() => {
+            addMessageWithTyping('¡ENEMIGO derrotado! ¡Has aprobado el examen con honores!');
+            sendGameData("victoria", gameState.playerHP, gameState.enemyHP);
+        }, 1200); // espera a que termine la espiral
+
+        return true;
     }
     return false;
+}
+
+function playEnemyDeathAnimation(callback) {
+    const sprite = document.querySelector('.enemy-sprite');
+    sprite.classList.add('dying');
+    setTimeout(callback, 1200); // espera a que termine la animación
 }
 
 async function sendGameData(status, finalPlayerHP, finalEnemyHP) {
