@@ -24,7 +24,7 @@ const gameState = {
 
     studentName: "",
     startTime: null,
-    webAppUrl: "https://script.google.com/macros/s/AKfycbxIVHCQhqSnZz_NpjCq0X0HaQ9UZgPvDzaiPoDF6mQacd8cOrO7i01JCe5yMybprVe-gQ/exec",
+    webAppUrl: "https://script.google.com/macros/s/AKfycbz0_7Zz_g9chst2cxyrB7vjdNbOcIdKlztCvv6tnYDdFuV5o7ldBLWhY6L1HLbywfu13w/exec",
     movesUsed: { easy: 0, medium: 0, hard: 0, heal: 0 }
 };
 
@@ -706,6 +706,34 @@ function playHitAnimation(spriteSelector) {
 async function sendGameData(status, finalPlayerHP, finalEnemyHP) {
     if (!gameState.studentName) return;
     const payload = {
+        nombre:           gameState.studentName,
+        inicio:           gameState.startTime ? gameState.startTime.toISOString() : "",
+        fin:              new Date().toISOString(),
+        vida_jugador:     finalPlayerHP,
+        vida_jefe:        finalEnemyHP,
+        estado:           status,
+        ataques_basicos:  movesUsed.easy,
+        ataques_fuertes:  movesUsed.medium,
+        ataques_epicos:   movesUsed.hard,
+        curas_usadas:     movesUsed.heal,
+        calificacion:     calcularCalificacion(finalEnemyHP, status === 'victoria' ? 0 : finalEnemyHP)
+    };
+    try {
+        await fetch(gameState.webAppUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+        console.log("Datos enviados correctamente");
+    } catch (error) {
+        console.error("Error al enviar datos:", error);
+    }
+}
+
+/*async function sendGameData(status, finalPlayerHP, finalEnemyHP) {
+    if (!gameState.studentName) return;
+    const payload = {
         nombre: gameState.studentName,
         inicio: gameState.startTime ? gameState.startTime.toISOString() : "",
         fin: new Date().toISOString(),
@@ -726,7 +754,7 @@ async function sendGameData(status, finalPlayerHP, finalEnemyHP) {
     } catch (error) {
         console.error("Error al enviar datos:", error);
     }
-}
+}*/
 
 function initButtons() {
     // Ataque básico
