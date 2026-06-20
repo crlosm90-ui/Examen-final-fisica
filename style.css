@@ -639,3 +639,137 @@ body::after {
     border-color: #b090ff;
     color: #fff;
 }
+
+/* ============================================================
+   RESPONSIVE — TABLET (max 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+
+    body { padding: 8px; }
+
+    .hud-name { font-size: 7px; }
+    .hud-hp-text { font-size: 7px; }
+
+    .portrait {
+        width: 42px;
+        height: 42px;
+    }
+
+    .battle-scene {
+        height: 320px;
+        padding: 0 20px 10px;
+    }
+
+    .player-sprite {
+        margin-left: 80px;
+        margin-bottom: 20px;
+    }
+
+    .enemy-sprite {
+        margin-right: 80px;
+        margin-bottom: 40px;
+    }
+
+    .player-img { height: 80px; }
+    .enemy-img  { height: 200px; }
+
+    .action-btn { font-size: 8px; height: 55px; }
+
+    .message-box { font-size: 10px; height: 110px; }
+}
+
+/* ============================================================
+   RESPONSIVE — MÓVIL (max 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+
+    body { padding: 4px; }
+
+    /* HUD: ocultar retratos para ahorrar espacio */
+    .portrait { display: none; }
+
+    .hud-top {
+        padding: 6px 8px;
+        gap: 4px;
+    }
+
+    .hud-name { font-size: 6px; letter-spacing: 0; }
+    .hud-hp-text { font-size: 6px; }
+    .vs-text { font-size: 14px; padding: 0 4px; }
+
+    /* Batalla más compacta */
+    .battle-scene {
+        height: 240px;
+        padding: 0 8px 8px;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .player-sprite {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .enemy-sprite {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .player-img { height: 70px; }
+    .enemy-img  { height: 160px; }
+
+    /* Timer más pequeño */
+    .boss-timer {
+        font-size: 7px;
+        padding: 4px 8px;
+        gap: 6px;
+    }
+
+    #boss-timer-text { font-size: 8px; }
+
+    /* Panel inferior: apilar vertical en lugar de dos columnas */
+    .bottom-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .message-box {
+        border-right: none;
+        border-bottom: 3px solid #6040c0;
+        height: 80px;
+        font-size: 9px;
+    }
+
+    /* Botones en 2x2 pero más pequeños */
+    .actions { grid-template-columns: 1fr 1fr; }
+
+    .action-btn {
+        font-size: 7px;
+        height: 52px;
+        padding: 0 6px;
+        letter-spacing: 0;
+    }
+
+    /* Modal de registro: una sola columna */
+    .register-modal-content {
+        flex-direction: column;
+        padding: 16px !important;
+        gap: 14px;
+    }
+
+    .register-right {
+        border-left: none;
+        border-top: 2px solid #4030a0;
+        padding-left: 0;
+        padding-top: 14px;
+    }
+
+    /* Modal de pregunta */
+    .modal-content { padding: 14px; }
+    #question-text { font-size: 10px; }
+
+    #options-container {
+        grid-template-columns: 1fr;  /* opciones en columna única */
+    }
+
+    .option-btn { font-size: 10px; padding: 10px; }
+}
