@@ -9,6 +9,7 @@ const gameState = {
 
     isPlayerTurn: true,
     isActionInProgress: false,
+    gameOver: false,
 
     moves: {
         attackEasy: { name: 'Ataque Básico', level: 1, damage: 15, uses: 15, maxUses: 15 },
@@ -525,10 +526,10 @@ async function enemyTurn() {
 
 function resetAction() {
     gameState.isActionInProgress = false;
-    // Si es turno del jugador, habilitar botones; si no, dejarlos deshabilitados
-    if (gameState.isPlayerTurn && !checkGameOver()) {
+    if (gameState.gameOver) return; // no hacer nada si el juego terminó
+    if (gameState.isPlayerTurn) {
         enablePlayerButtons();
-    } else if (!gameState.isPlayerTurn && !checkGameOver()) {
+    } else {
         disablePlayerButtons();
     }
 }
@@ -613,7 +614,10 @@ function mostrarResultadoFinal(status, finalEnemyHP) {
 }
 
 function checkGameOver() {
+    if (gameState.gameOver) return true; // ya terminó, ignorar llamadas duplicadas
+
     if (gameState.playerHP <= 0) {
+        gameState.gameOver = true;
         disablePlayerButtons();
         gameState.isPlayerTurn = false;
         gameState.isActionInProgress = false;
@@ -623,14 +627,16 @@ function checkGameOver() {
         playerSprite.classList.add('dying');
 
         setTimeout(() => {
-            addMessageWithTyping('¡Nexo ha caído ante Aetérnus... El tiempo se detiene!');
+            addMessageWithTyping('¡Nexo ha caído ante Kronos... El tiempo se detiene!');
             sendGameData("derrota", gameState.playerHP, gameState.enemyHP);
             mostrarResultadoFinal('derrota', gameState.enemyHP);
         }, 1000);
 
         return true;
     }
+
     if (gameState.enemyHP <= 0) {
+        gameState.gameOver = true;
         disablePlayerButtons();
         gameState.isPlayerTurn = false;
         gameState.isActionInProgress = false;
@@ -640,13 +646,14 @@ function checkGameOver() {
         enemySprite.classList.add('dying');
 
         setTimeout(() => {
-            addMessageWithTyping('¡AETÉRNUS ha sido sellado! ¡El tiempo vuelve a fluir!');
+            addMessageWithTyping('¡Aeternatus ha sido sellado! ¡El tiempo vuelve a fluir!');
             sendGameData("victoria", gameState.playerHP, gameState.enemyHP);
             mostrarResultadoFinal('victoria', 0);
         }, 1200);
 
         return true;
     }
+
     return false;
 }
 
