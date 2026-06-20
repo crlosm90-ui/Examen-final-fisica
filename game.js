@@ -13,7 +13,7 @@ const gameState = {
     moves: {
         attackEasy: { name: 'Ataque Básico', level: 1, damage: 15, uses: 15, maxUses: 15 },
         attackMedium: { name: 'Ataque Fuerte', level: 2, damage: 25, uses: 10, maxUses: 10 },
-        attackHard: { name: 'Ataque Épico', level: 3, damage: 100, uses: 5, maxUses: 5 },
+        attackHard: { name: 'Ataque Épico', level: 3, damage: 40, uses: 5, maxUses: 5 },
         heal: { name: 'Curación', heal: 30, uses: 5, maxUses: 5 }
     },
 
