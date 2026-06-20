@@ -455,9 +455,9 @@ async function enemyTurn() {
     const level = Math.floor(Math.random() * 3) + 1;
     let difficulty, baseDamage, nombreAtaque;
     switch (level) {
-        case 1: difficulty = 'easy'; baseDamage = 200; nombreAtaque = 'DÉBIL'; break;
-        case 2: difficulty = 'medium'; baseDamage = 200; nombreAtaque = 'NORMAL'; break;
-        case 3: difficulty = 'hard'; baseDamage = 200; nombreAtaque = 'PODEROSO'; break;
+        case 1: difficulty = 'easy'; baseDamage = 15; nombreAtaque = 'DÉBIL'; break;
+        case 2: difficulty = 'medium'; baseDamage = 25; nombreAtaque = 'NORMAL'; break;
+        case 3: difficulty = 'hard'; baseDamage = 40; nombreAtaque = 'PODEROSO'; break;
     }
 
     const question = getRandomQuestion(difficulty);
