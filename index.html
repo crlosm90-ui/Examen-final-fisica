@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Final: Battle RPG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game-container">
+
+    <!-- ===== HUD SUPERIOR ===== -->
+    <div class="hud-top">
+        <div class="hud-player">
+            <div class="portrait player-portrait">
+                <img src="heroicon.png" alt="Héroe">
+            </div>
+            <div class="hud-info">
+                <span class="hud-name">HÉROE</span>
+                <div class="bar-container">
+                    <div id="player-hp" class="bar player-bar" style="width:100%"></div>
+                </div>
+                <span class="hud-hp-text" id="player-hp-text">200/200</span>
+            </div>
+        </div>
+
+        <div class="vs-text">VS</div>
+
+        <div class="hud-enemy">
+            <div class="hud-info hud-info-right">
+                <span class="hud-name">ENTIDAD CÓSMICA</span>
+                <div class="bar-container">
+                    <div id="enemy-hp" class="bar enemy-bar" style="width:100%"></div>
+                </div>
+                <span class="hud-hp-text" id="enemy-hp-text">200/200</span>
+            </div>
+            <div class="portrait enemy-portrait">
+                <img src="villianicon.png" alt="Enemigo">
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ÁREA DE BATALLA ===== -->
+    <div class="battle-scene">
+        <div class="sprite player-sprite">
+            <img src="Heroe.png" alt="Héroe" class="character-img player-img">
+        </div>
+        <div class="sprite enemy-sprite">
+            <img src="Villian.png" alt="Villano" class="character-img enemy-img">
+        </div>
+
+        <div class="boss-timer">
+            <span>CUENTA ATRÁS TEMPORAL ⏳</span>
+            <span id="boss-timer-text">300s</span>
+        </div>
+    </div>
+
+    <!-- ===== PANEL INFERIOR: mensajes + acciones ===== -->
+    <div class="bottom-panel">
+        <div class="message-box" id="message-box">
+            <p>¡Comienza la batalla!</p>
+        </div>
+        <div class="actions">
+            <button class="action-btn" id="attack-easy"  data-level="1">Ataque Básico</button>
+            <button class="action-btn" id="attack-medium" data-level="2">Ataque Fuerte</button>
+            <button class="action-btn" id="attack-hard"  data-level="3">Ataque Épico</button>
+            <button class="action-btn" id="heal-btn">Curación</button>
+        </div>
+    </div>
+
+</div><!-- /game-container -->
+
+<!-- Modal pregunta -->
+<div id="question-modal" class="modal hidden">
+    <div class="modal-content">
+        <div id="question-header" class="question-header"></div>
+        <p id="question-text">Pregunta</p>
+        <div id="options-container"></div>
+    </div>
+</div>
+
+<!-- Modal registro -->
+<div id="register-modal" class="modal">
+    <div class="modal-content register-modal-content">
+
+        <div class="register-left">
+            <h2 class="register-title">⚔️ EXAMEN FINAL</h2>
+
+            <div class="instructions-box">
+                <p class="instructions-title">📜 INSTRUCCIONES</p>
+                <ul class="instructions-list">
+                    <li>⚔️ <span>Contesta <b>correctamente</b> para golpear al enemigo o curarte.</span></li>
+                    <li>💥 <span>Si te <b>equivocas</b>, recibes daño o fallas el ataque.</span></li>
+                    <li>🔥 <span>Cuando la <b>cuenta atrás temporal</b> llega a cero, el jefe se cura.</span></li>
+                    <li>🏆 <span>Si <b>derrotas al jefe</b>, obtendrás un <b>10</b>.</span></li>
+                    <li>📊 <span>Si fallas, tu <b>calificación</b> dependerá de cuánta vida conserva el jefe.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="register-right">
+            <div class="register-form-box">
+                <p class="form-title">REGISTRO</p>
+                <label for="student-name">Nombre completo:</label>
+                <input type="text" id="student-name" placeholder="Escribe tu nombre..." autocomplete="off">
+                <button id="register-btn">▶ COMENZAR EXAMEN</button>
+                <p id="register-error" style="color:#ff6060;display:none;font-size:9px;margin-top:8px;">Por favor ingresa tu nombre completo</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>

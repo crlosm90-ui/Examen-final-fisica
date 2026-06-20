@@ -1,0 +1,471 @@
+[
+  {
+    "id": 1,
+    "question": "¿Cómo se llama la etapa del método científico que es una explicación tentativa y comprobable?",
+    "options": ["Observación", "Hipótesis", "Experimentación", "Conclusión"],
+    "correctIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "question": "¿Cuál es la unidad fundamental para medir la masa según el Sistema Internacional (SI)?",
+    "options": ["Gramo", "Libra", "Kilogramo", "Newton"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "question": "Si un objeto viaja a una velocidad constante en línea recta, ¿qué tipo de movimiento realiza?",
+    "options": ["Movimiento Circular", "MRUA", "MRU", "Caída Libre"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "question": "¿Qué propiedad establece que los cuerpos resisten el cambio de su estado de reposo o movimiento?",
+    "options": ["Fuerza", "Peso", "Inercia", "Aceleración"],
+    "correctIndex": 2,
+    "difficulty": "medium"
+  },
+  {
+    "id": 5,
+    "question": "¿Cuánto pesa un auto de 1200 kg en la Tierra? (Considera g = 9.8 m/s²)",
+    "options": ["1200 N", "11760 N", "122.4 N", "9800 N"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 6,
+    "question": "Si empujas una pared con 50 N de fuerza, ¿con qué fuerza reacciona la pared hacia ti?",
+    "options": ["0 N", "25 N", "50 N en sentido contrario", "100 N"],
+    "correctIndex": 2,
+    "difficulty": "medium"
+  },
+  {
+    "id": 7,
+    "question": "¿Cómo se llama la energía que posee un cuerpo debido a su posición o altura?",
+    "options": ["Energía Cinética", "Energía Térmica", "Energía Potencial Gravitacional", "Energía Elástica"],
+    "correctIndex": 2,
+    "difficulty": "medium"
+  },
+  {
+    "id": 8,
+    "question": "¿Qué le sucede a la energía cinética de un vehículo si su velocidad se duplica?",
+    "options": ["Se duplica", "Se cuatriplica", "Se reduce a la mitad", "No cambia"],
+    "correctIndex": 1,
+    "difficulty": "hard"
+  },
+  {
+    "id": 9,
+    "question": "¿En qué estado de la materia las partículas están muy separadas y ocupan todo el espacio disponible?",
+    "options": ["Sólido", "Líquido", "Gaseoso", "Plasma"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 10,
+    "question": "¿Cuál es la masa de un cuerpo que, al recibir una fuerza de 10 N, acelera a 20 m/s²?",
+    "options": ["2 kg", "0.5 kg", "200 kg", "10 kg"],
+    "correctIndex": 1,
+    "difficulty": "hard"
+  },
+  {
+    "id": 11,
+    "question": "¿Qué establece el principio de conservación de la energía?",
+    "options": ["La energía se pierde", "La energía aumenta siempre", "No se crea ni se destruye, solo se transforma", "Solo existe en movimiento"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 12,
+    "question": "¿Qué mide la temperatura a nivel de las partículas de un cuerpo?",
+    "options": ["El tamaño", "La energía cinética promedio", "La masa total", "El color"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 13,
+    "question": "¿Dónde tendrá un libro más energía potencial si se levanta a 1 metro de altura?",
+    "options": ["En la Luna", "En el espacio", "En la Tierra", "Es igual"],
+    "correctIndex": 2,
+    "difficulty": "medium"
+  },
+  {
+    "id": 14,
+    "question": "¿Cuál es la diferencia fundamental entre distancia y desplazamiento?",
+    "options": ["Son lo mismo", "La distancia es escalar y el desplazamiento vectorial", "La distancia es más corta", "El desplazamiento no tiene dirección"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 17,
+    "question": "Si un objeto se mueve con una aceleración de 0 m/s², ¿qué podemos afirmar sobre su velocidad?",
+    "options": ["Es nula (está detenido)", "Está aumentando", "Es constante", "Está disminuyendo"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 18,
+    "question": "¿Cuál de las siguientes magnitudes físicas es una unidad derivada y no una unidad fundamental del SI?",
+    "options": ["Metro (Longitud)", "Segundo (Tiempo)", "Newton (Fuerza)", "Kelvin (Temperatura)"],
+    "correctIndex": 2,
+    "difficulty": "medium"
+  },
+  {
+    "id": 19,
+    "question": "¿En qué dirección actúa siempre la fuerza de fricción sobre un objeto en movimiento?",
+    "options": ["Hacia arriba", "Hacia abajo", "En la misma dirección que el movimiento", "En dirección opuesta al movimiento"],
+    "correctIndex": 3,
+    "difficulty": "easy"
+  },
+  {
+    "id": 20,
+    "question": "Según la Segunda Ley de Newton, si triplicas la fuerza aplicada a un objeto manteniendo su masa constante, la aceleración:",
+    "options": ["Se reduce a la tercera parte", "Se mantiene igual", "Se triplica", "Aumenta nueve veces"],
+    "correctIndex": 2,
+    "difficulty": "hard"
+  },
+  {
+    "id": 21,
+    "question": "¿Qué tipo de energía se almacena en un arco cuando está tensado justo antes de disparar la flecha?",
+    "options": ["Energía Cinética", "Energía Potencial Elástica", "Energía Térmica", "Energía Química"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 22,
+    "question": "¿Cómo se llama el proceso en el que un gas se convierte directamente en sólido sin pasar por el estado líquido?",
+    "options": ["Sublimación inversa", "Fusión", "Vaporización", "Condensación"],
+    "correctIndex": 0,
+    "difficulty": "hard"
+  },
+  {
+    "id": 23,
+    "question": "¿Qué instrumento de laboratorio se utiliza específicamente para medir el peso o la fuerza aplicada a un cuerpo?",
+    "options": ["Balanza", "Termómetro", "Dinamómetro", "Probeta"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 24,
+    "question": "Cuando un objeto cae libremente y despreciamos la fricción del aire, ¿qué ocurre con su energía mecánica total?",
+    "options": ["Aumenta constantemente", "Disminuye hasta llegar a cero", "Se mantiene constante", "Se transforma totalmente en masa"],
+    "correctIndex": 2,
+    "difficulty": "hard"
+  },
+  {
+    "id": 26,
+    "question": "¿Cuál es el instrumento de laboratorio diseñado específicamente para medir la masa de los objetos?",
+    "options": ["Probeta", "Dinamómetro", "Balanza", "Flexómetro"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 27,
+    "question": "¿Cuál es el símbolo correcto de la unidad de medida de la fuerza en el Sistema Internacional?",
+    "options": ["n", "Nw", "N", "kg/m"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 28,
+    "question": "¿Cómo se define la línea imaginaria que describe un objeto al desplazarse de un punto a otro?",
+    "options": ["Distancia", "Trayectoria", "Vector", "Rapidez"],
+    "correctIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 29,
+    "question": "¿Cuál de las siguientes opciones representa una fuente de energía renovable?",
+    "options": ["Carbón", "Petróleo", "Viento (Eólica)", "Gas Natural"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 30,
+    "question": "Estado de la materia en el cual los átomos tienen posiciones fijas y solo pueden vibrar:",
+    "options": ["Sólido", "Líquido", "Gaseoso", "Plasma"],
+    "correctIndex": 0,
+    "difficulty": "easy"
+  },
+  {
+    "id": 31,
+    "question": "Si un corredor completa los 100 metros planos en exactamente 10 segundos, ¿cuál fue su rapidez promedio?",
+    "options": ["1 m/s", "10 m/s", "100 m/s", "0.1 m/s"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 32,
+    "question": "¿Cuál es el peso aproximado en Marte (g = 3.7 m/s²) de una roca que tiene una masa de 10 kg?",
+    "options": ["37 N", "10 N", "98 N", "3.7 N"],
+    "correctIndex": 0,
+    "difficulty": "medium"
+  },
+  {
+    "id": 33,
+    "question": "Según la Segunda Ley de Newton, si aplicamos la misma fuerza a dos objetos de distinta masa, el objeto con menor masa tendrá:",
+    "options": ["Menor aceleración", "Mayor aceleración", "Velocidad constante", "Inercia infinita"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 34,
+    "question": "¿Qué tipo de energía predomina en una flecha que se mueve a gran velocidad a la misma altura del suelo?",
+    "options": ["Energía Potencial", "Energía Cinética", "Energía Elástica", "Energía Térmica"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 35,
+    "question": "¿Por qué los líquidos pueden adoptar la forma del recipiente que los contiene pero mantienen un volumen constante?",
+    "options": ["Sus partículas están muy separadas", "Sus partículas están unidas pero pueden deslizarse", "No tienen partículas", "Sus partículas están fijas"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 36,
+    "question": "Un vehículo viaja a 72 km/h. ¿Cuál es su equivalencia correcta en metros por segundo (m/s)?",
+    "options": ["7.2 m/s", "20 m/s", "25.9 m/s", "10 m/s"],
+    "correctIndex": 1,
+    "difficulty": "hard"
+  },
+  {
+    "id": 37,
+    "question": "Un objeto de 5 kg cambia su velocidad de 10 m/s a 30 m/s en un tiempo de 4 segundos. ¿Cuál fue su aceleración?",
+    "options": ["20 m/s²", "10 m/s²", "5 m/s²", "2.5 m/s²"],
+    "correctIndex": 2,
+    "difficulty": "hard"
+  },
+  {
+    "id": 38,
+    "question": "Calcula la energía potencial de un dron de 2 kg que vuela a una altura de 50 metros (considera g = 9.8 m/s²):",
+    "options": ["100 J", "490 J", "980 J", "19.6 J"],
+    "correctIndex": 2,
+    "difficulty": "hard"
+  },
+  {
+    "id": 39,
+    "question": "Si dos fuerzas de 15 N y 10 N actúan sobre un mismo objeto en direcciones opuestas, ¿cuál es la fuerza resultante?",
+    "options": ["25 N", "150 N", "5 N", "0 N"],
+    "correctIndex": 2,
+    "difficulty": "hard"
+  },
+  {
+    "id": 40,
+    "question": "¿Qué ocurre con la energía mecánica de un objeto que cae en el vacío (sin fricción)?",
+    "options": ["Aumenta al doble", "Disminuye gradualmente", "Se mantiene constante", "Desaparece al tocar el suelo"],
+    "correctIndex": 2,
+    "difficulty": "hard"
+  },
+  {
+    "id": 41,
+    "question": "¿Cómo se define la magnitud física de la densidad?",
+    "options": ["Fuerza entre área", "Relación entre la masa de un cuerpo y su volumen", "Peso del fluido desplazado", "Cantidad de calor por gramo"],
+    "correctIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 42,
+    "question": "¿Cuál es el valor considerado para la velocidad de la luz en el vacío?",
+    "options": ["300 m/s", "300,000 m/s", "300,000 km/s", "300 km/s"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 43,
+    "question": "Partícula subatómica que se encuentra en el núcleo del átomo y NO tiene carga eléctrica:",
+    "options": ["Protón", "Electrón", "Neutrón", "Fotón"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 44,
+    "question": "Mecanismo de transferencia de calor que ocurre por el contacto directo entre dos o más cuerpos:",
+    "options": ["Convección", "Radiación", "Conducción", "Inducción"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 45,
+    "question": "Capacidad de un objeto para mantenerse en la superficie de un fluido:",
+    "options": ["Presión", "Flotación", "Densidad", "Viscosidad"],
+    "correctIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 46,
+    "question": "Partícula subatómica con carga eléctrica negativa que orbita alrededor del núcleo atómico:",
+    "options": ["Electrón", "Protón", "Neutrón", "Positrón"],
+    "correctIndex": 0,
+    "difficulty": "easy"
+  },
+  {
+    "id": 47,
+    "question": "¿Qué tipo de materiales tienen electrones libres que facilitan el paso de la corriente eléctrica?",
+    "options": ["Aislantes", "Conductores", "Semiconductores", "Dieléctricos"],
+    "correctIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 48,
+    "question": "Es el fenómeno donde los rayos de luz inciden sobre una superficie, cambian de dirección y se siguen moviendo por el mismo medio:",
+    "options": ["Refracción", "Difracción", "Reflexión", "Polarización"],
+    "correctIndex": 2,
+    "difficulty": "easy"
+  },
+  {
+    "id": 49,
+    "question": "Fuerza que ejerce el peso del aire sobre la superficie de la Tierra:",
+    "options": ["Presión hidrostática", "Presión atmosférica", "Empuje", "Tensión superficial"],
+    "correctIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 50,
+    "question": "¿Qué unidad del SI se utiliza para medir el calor en procesos de transferencia térmica?",
+    "options": ["Newton", "Joule (o calorías)", "Voltios", "Amperes"],
+    "correctIndex": 1,
+    "difficulty": "easy"
+  },
+  {
+    "id": 51,
+    "question": "Principio que afirma que todo objeto sumergido en un fluido experimenta una fuerza hacia arriba igual al peso del fluido desplazado:",
+    "options": ["Principio de Pascal", "Principio de Arquímedes", "Principio de Bernoulli", "Ley de Ohm"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 52,
+    "question": "Mecanismo de transferencia de calor que ocurre mediante ondas electromagnéticas, sin necesidad de un medio material:",
+    "options": ["Conducción", "Convección", "Radiación", "Absorción"],
+    "correctIndex": 2,
+    "difficulty": "medium"
+  },
+  {
+    "id": 53,
+    "question": "Si un material adquiere carga negativa tras ser frotado, esto indica que:",
+    "options": ["Ha perdido protones", "Ha ganado electrones", "Ha ganado protones", "Ha perdido neutrones"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 54,
+    "question": "¿Cuál es la diferencia técnica entre temperatura y calor?",
+    "options": ["Son lo mismo", "El calor es energía en tránsito y la temperatura mide la energía cinética promedio de las partículas", "La temperatura es energía total y el calor es masa", "No guardan relación"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 55,
+    "question": "Mecanismo donde el calor se transfiere debido al movimiento de partículas de fluidos (líquidos o gases) por diferencias de densidad:",
+    "options": ["Conducción", "Radiación", "Convección", "Sublimación"],
+    "correctIndex": 2,
+    "difficulty": "medium"
+  },
+  {
+    "id": 56,
+    "question": "Principio físico fundamental bajo el cual operan los generadores eléctricos en las plantas de energía:",
+    "options": ["Efecto fotoeléctrico", "Inducción electromagnética", "Electrólisis", "Resistencia ohmica"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 57,
+    "question": "Fenómeno óptico donde las ondas de luz se curvan al encontrar un obstáculo o pasar por una abertura pequeña:",
+    "options": ["Refracción", "Reflexión", "Difracción", "Polarización"],
+    "correctIndex": 2,
+    "difficulty": "medium"
+  },
+  {
+    "id": 58,
+    "question": "Concepto que representa el peso de un objeto disminuido por la fuerza de empuje al estar sumergido en un fluido:",
+    "options": ["Peso real", "Peso específico", "Peso aparente", "Densidad relativa"],
+    "correctIndex": 2,
+    "difficulty": "medium"
+  },
+  {
+    "id": 59,
+    "question": "Ley que establece la relación proporcional entre el voltaje, la intensidad de corriente y la resistencia en un conductor:",
+    "options": ["Ley de Newton", "Ley de Ohm", "Ley de Coulomb", "Ley de Faraday"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 60,
+    "question": "Fenómeno óptico consistente en el cambio de dirección de la luz al pasar de un medio de distinta densidad a otro:",
+    "options": ["Reflexión", "Refracción", "Difracción", "Dispersión"],
+    "correctIndex": 1,
+    "difficulty": "medium"
+  },
+  {
+    "id": 61,
+    "question": "Calcula la presión hidrostática a 3,800 m de profundidad (densidad = 1,027 kg/m³, g = 9.8 m/s²):",
+    "options": ["3,800 Pa", "38,200,600 Pa", "1,027 Pa", "9,800 Pa"],
+    "correctIndex": 1,
+    "difficulty": "hard"
+  },
+  {
+    "id": 62,
+    "question": "Calcula la corriente (I) en un circuito con resistencia de 10 Ω y voltaje de 12 V:",
+    "options": ["120 A", "1.2 A", "10 A", "22 A"],
+    "correctIndex": 1,
+    "difficulty": "hard"
+  },
+  {
+    "id": 63,
+    "question": "Un objeto tiene una masa de 0.955 kg y un volumen de 0.00005 m³. ¿Cuál es su densidad?:",
+    "options": ["19,100 kg/m³", "0.000047 kg/m³", "5,200 kg/m³", "955 kg/m³"],
+    "correctIndex": 0,
+    "difficulty": "hard"
+  },
+  {
+    "id": 64,
+    "question": "Calcula el calor necesario para calentar 0.25 kg de agua de 20 °C a 55 °C (Ce = 1 cal/g°C):",
+    "options": ["250 cal", "8,750 cal", "35 cal", "13,750 cal"],
+    "correctIndex": 1,
+    "difficulty": "hard"
+  },
+  {
+    "id": 65,
+    "question": "Un circuito tiene una corriente de 3 A y una resistencia de 4 Ω. ¿Cuál es el voltaje aplicado?:",
+    "options": ["1.33 V", "7 V", "12 V", "0.75 V"],
+    "correctIndex": 2,
+    "difficulty": "hard"
+  },
+  {
+    "id": 66,
+    "question": "¿Cuál es la función principal del campo magnético terrestre en relación con la vida en el planeta?",
+    "options": ["Generar gravedad", "Protección contra radiación solar y orientación", "Ninguna influencia biológica", "Regular la temperatura"],
+    "correctIndex": 1,
+    "difficulty": "hard"
+  },
+  {
+    "id": 67,
+    "question": "Si una masa de 4,000 kg se apoya sobre 8 m², ¿qué presión ejerce?:",
+    "options": ["500 Pa", "4,000 Pa", "4,900 Pa", "32,000 Pa"],
+    "correctIndex": 2,
+    "difficulty": "hard"
+  },
+  {
+    "id": 68,
+    "question": "La luz puede comportarse tanto como una onda como una corriente de partículas (fotones). ¿Cómo se denomina a este fenómeno fundamental de la física cuántica?",
+    "options": ["Reflexión total", "Dualidad onda-partícula", "Dispersión cromática", "Efecto Joule"],
+    "correctIndex": 1,
+    "difficulty": "hard"
+  },
+  {
+    "id": 69,
+    "question": "Calcula la resistencia de un dispositivo con 5 A de corriente y 120 V de voltaje:",
+    "options": ["24 Ω", "600 Ω", "0.041 Ω", "125 Ω"],
+    "correctIndex": 0,
+    "difficulty": "hard"
+  },
+  {
+    "id": 70,
+    "question": "Si una bobina se mueve dentro de un campo magnético, se induce una corriente eléctrica. Este es el principio de:",
+    "options": ["Electrólisis", "Inducción electromagnética", "Efecto Doppler", "Ley de Gravitación"],
+    "correctIndex": 1,
+    "difficulty": "hard"
+  }
+]
