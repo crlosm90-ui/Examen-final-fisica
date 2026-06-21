@@ -164,6 +164,7 @@ function startBossHealTimer() {
             gameState.bossHealTimer = gameState.bossHealMaxTime; // reiniciar contador
             const healAmount = Math.floor((maxHP * gameState.bossHealPercentage) / 100);
             const newHP = Math.min(maxHP, gameState.enemyHP + healAmount);
+            playEnemyHealEffect();
             const actualHeal = newHP - gameState.enemyHP;
             if (actualHeal > 0) {
                 gameState.enemyHP = newHP;
@@ -413,6 +414,7 @@ async function playerHeal() {
                 gameState.playerHP = Math.min(maxHP, gameState.playerHP + move.heal);
                 await addMessageWithTyping(`✨ ¡Recuperaste ${move.heal} HP!`);
                 updateHPBars();
+                playPlayerHealEffect();
                 
                 document.querySelector('.player-sprite').style.filter = 'drop-shadow(0 0 15px #4caf50)';
                 document.querySelector('.player-sprite').style.transform = 'scale(1.1)';
@@ -708,6 +710,58 @@ function playHitAnimation(spriteSelector) {
     void sprite.offsetWidth;        // forzar reflow para que se reinicie
     sprite.classList.add('hit');
     setTimeout(() => sprite.classList.remove('hit'), 400);
+}
+
+function playEnemyHealEffect() {
+    const sprite = document.querySelector('.enemy-sprite');
+    const rect   = sprite.getBoundingClientRect();
+
+    const symbols = ['✚', '♥', '✚', '+', '✚', '♥'];
+
+    symbols.forEach((sym, i) => {
+        setTimeout(() => {
+            const particle = document.createElement('div');
+            particle.className  = 'heal-particle';
+            particle.textContent = sym;
+
+            // Posición aleatoria alrededor del sprite
+            const x = rect.left + Math.random() * rect.width  + window.scrollX;
+            const y = rect.top  + Math.random() * rect.height * 0.8 + window.scrollY;
+
+            particle.style.left = `${x}px`;
+            particle.style.top  = `${y}px`;
+            particle.style.position = 'fixed';
+
+            document.body.appendChild(particle);
+
+            // Eliminar del DOM al terminar
+            setTimeout(() => particle.remove(), 1200);
+        }, i * 120); // cada símbolo aparece escalonado
+    });
+}
+
+function playPlayerHealEffect() {
+    const sprite = document.querySelector('.player-sprite');
+    const rect   = sprite.getBoundingClientRect();
+
+    const symbols = ['✚', '♥', '✚', '+', '✚', '♥'];
+
+    symbols.forEach((sym, i) => {
+        setTimeout(() => {
+            const particle = document.createElement('div');
+            particle.className   = 'heal-particle-player';
+            particle.textContent = sym;
+
+            const x = rect.left + Math.random() * rect.width  + window.scrollX;
+            const y = rect.top  + Math.random() * rect.height * 0.8 + window.scrollY;
+
+            particle.style.left = `${x}px`;
+            particle.style.top  = `${y}px`;
+
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 1200);
+        }, i * 120);
+    });
 }
 
 async function sendGameData(status, finalPlayerHP, finalEnemyHP) {

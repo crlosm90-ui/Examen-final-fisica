@@ -904,3 +904,32 @@ body::after {
 .enemy-sprite.hit {
     animation: enemy-hit 0.4s ease-out forwards !important;
 }
+
+/* ============================================================
+   EFECTO DE CURACIÓN DEL JEFE
+   ============================================================ */
+.heal-particle {
+    position: absolute;
+    font-size: 18px;
+    color: #50ff80;
+    text-shadow: 0 0 8px #00ff44, 0 0 16px #00ff44;
+    pointer-events: none;
+    z-index: 10;
+    animation: heal-float 1.2s ease-out forwards;
+}
+
+@keyframes heal-float {
+    0%   { opacity: 1;   transform: translateY(0)    scale(1);   }
+    60%  { opacity: 0.8; transform: translateY(-40px) scale(1.2); }
+    100% { opacity: 0;   transform: translateY(-80px) scale(0.5); }
+}
+
+.heal-particle-player {
+    position: fixed;
+    font-size: 18px;
+    color: #50ffcc;
+    text-shadow: 0 0 8px #00ffaa, 0 0 16px #00ffaa;
+    pointer-events: none;
+    z-index: 10;
+    animation: heal-float 1.2s ease-out forwards;
+}
